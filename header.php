@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-cn">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,8 +19,6 @@
 
   </head>
   <body>
-
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="index.html">Start Bootstrap</a>
@@ -28,27 +26,22 @@
           Menu
           <i class="fas fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="post.html">Sample Post</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
+        <?php 
+    wp_nav_menu( array( 
+      'theme_location'=>'top_menu',
+      'container'  => 'div', 
+      'container_class' => 'collapse navbar-collapse',
+      'container_id'  => 'navbarResponsive', 
+      //'menu_class'=>'navbar-nav ml-auto',
+      'items_wrap'  => '<ul id="ulid" class="navbar-nav ml-auto">%3$s</ul>',
+      'depth' => 0
+       ) );       
+?> 
       </div>
     </nav>
-<?php wp_nav_menu(); ?>
+
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+    <header class="masthead" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/home-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
